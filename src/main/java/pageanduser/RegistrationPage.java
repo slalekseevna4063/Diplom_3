@@ -1,4 +1,4 @@
-package UsersAndPagesObjects;
+package pageanduser;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -8,7 +8,6 @@ import org.openqa.selenium.support.How;
 import static com.codeborne.selenide.Condition.visible;
 
 public class RegistrationPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/register";
     private final String actualTextError = "Некорректный пароль";
 
     //локатор кнопки "Войти"

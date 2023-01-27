@@ -1,4 +1,4 @@
-package UsersAndPagesObjects;
+package pageanduser;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -13,16 +13,16 @@ public class NewUser {
         this.name = name;
     }
 
+    public NewUser(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public static NewUser getRandomUser() {
         String email = RandomStringUtils.randomAlphabetic(8) + "@yandex.ru";
         String password = RandomStringUtils.randomAlphabetic(8);
         String name = RandomStringUtils.randomAlphabetic(8);
         return new NewUser(email, password, name);
-    }
-
-    public NewUser(String email, String password) {
-        this.email = email;
-        this.password = password;
     }
 
     public String getEmail() {

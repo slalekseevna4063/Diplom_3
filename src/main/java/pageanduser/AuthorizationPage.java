@@ -1,4 +1,4 @@
-package UsersAndPagesObjects;
+package pageanduser;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class AuthorizationPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/login";
-
     //локатор кнопки "Войти"
     @FindBy(how = How.XPATH, using = ".//button[contains(text(),'Войти')]")
     private SelenideElement buttonAuthorization;
@@ -49,7 +47,7 @@ public class AuthorizationPage {
     }
 
     @Step("Авторизация")
-    public void login(String mail, String password){
+    public void login(String mail, String password) {
         setInputEmail(mail);
         setInputPassword(password);
         clickButtonAuthorization();

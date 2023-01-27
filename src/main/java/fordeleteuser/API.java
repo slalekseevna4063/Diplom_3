@@ -1,9 +1,9 @@
-package DeleteUsersPojos;
+package fordeleteuser;
 
-import UsersAndPagesObjects.NewUser;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import pageanduser.NewUser;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;

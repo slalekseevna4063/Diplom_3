@@ -1,29 +1,30 @@
-import DeleteUsersPojos.API;
-import DeleteUsersPojos.Login;
-import UsersAndPagesObjects.AuthorizationPage;
-import UsersAndPagesObjects.NewUser;
-import UsersAndPagesObjects.RegistrationPage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import fordeleteuser.API;
+import fordeleteuser.Login;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import pageanduser.AuthorizationPage;
+import pageanduser.NewUser;
+import pageanduser.RegistrationPage;
+import pageanduser.Url;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class RegistrationTest {
-    NewUser newUser;
-    RegistrationPage registrationPage;
+    public NewUser newUser;
+    public RegistrationPage registrationPage;
 
     @Before
     public void Preconditions() {
         newUser = NewUser.getRandomUser();
-        registrationPage = open(RegistrationPage.URL, RegistrationPage.class);
+        registrationPage = open(Url.URL_REGISTRATION, RegistrationPage.class);
     }
 
 
@@ -47,6 +48,7 @@ public class RegistrationTest {
         registrationPage.registration(newUser.getName(), newUser.getEmail(), RandomStringUtils.randomAlphabetic(5));
         registrationPage.getTextError().shouldBe(Condition.visible);
     }
+
     @After
     public void Postconditions() {
         Selenide.clearBrowserCookies();

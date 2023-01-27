@@ -1,4 +1,4 @@
-package UsersAndPagesObjects;
+package pageanduser;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class MainPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/";
     public static final String ACTIVE_BUNS = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
     public static final String ACTIVE_SAUCES = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
     public static final String ACTIVE_TOPPINGS = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
@@ -82,4 +81,5 @@ public class MainPage {
     public void clickButtonPersonal() {
         buttonPersonal.click();
     }
+
 }

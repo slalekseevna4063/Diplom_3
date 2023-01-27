@@ -1,4 +1,4 @@
-package DeleteUsersPojos;
+package fordeleteuser;
 
 public class Login {
     private String success;

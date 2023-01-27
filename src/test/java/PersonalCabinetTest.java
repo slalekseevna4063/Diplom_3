@@ -1,24 +1,24 @@
-import DeleteUsersPojos.API;
-import DeleteUsersPojos.Login;
-import UsersAndPagesObjects.*;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import fordeleteuser.API;
+import fordeleteuser.Login;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import pageanduser.*;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class PersonalCabinetTest {
-    NewUser newUser;
-    MainPage mainPage;
-    AuthorizationPage authorizationPage;
-    String accessToken;
-    boolean yandex = false; // Если надо тесты запустить в Яндекс браузере, то переменная - true, для Хрома - false
+    public NewUser newUser;
+    public MainPage mainPage;
+    public AuthorizationPage authorizationPage;
+    public String accessToken;
+    public boolean yandex = false; // Если надо тесты запустить в Яндекс браузере, то переменная - true, для Хрома - false
 
     @Before
     public void Preconditions() {
@@ -30,17 +30,17 @@ public class PersonalCabinetTest {
     @Test
     @DisplayName("Проверка перехода по клику на «Личный кабинет». Неавторизованный пользователь.")
     public void checkPersonalCabinetLogout() {
-        mainPage = open(MainPage.URL, MainPage.class);
+        mainPage = open(Url.URL_BASE, MainPage.class);
         mainPage.clickButtonPersonal();
         authorizationPage = page(AuthorizationPage.class);
-        //проверяем, что кнопку "Войти" появилась на экране
+        //проверяем, что кнопка "Войти" появилась на экране
         authorizationPage.getButtonAuthorization().shouldBe(Condition.visible);
     }
 
     @Test
     @DisplayName("Проверка перехода по клику на «Личный кабинет». Авторизованный пользователь.")
     public void checkPersonalCabinetLogin() {
-        authorizationPage = open(AuthorizationPage.URL, AuthorizationPage.class);
+        authorizationPage = open(Url.URL_LOGIN, AuthorizationPage.class);
         authorizationPage.login(newUser.getEmail(), newUser.getPassword());
         mainPage = page(MainPage.class);
         mainPage.clickButtonPersonal();
@@ -52,7 +52,7 @@ public class PersonalCabinetTest {
     @Test
     @DisplayName("Проверка перехода по клику на «Конструктор»")
     public void checkGoToConstructor() {
-        authorizationPage = open(AuthorizationPage.URL, AuthorizationPage.class);
+        authorizationPage = open(Url.URL_LOGIN, AuthorizationPage.class);
         authorizationPage.login(newUser.getEmail(), newUser.getPassword());
         mainPage = page(MainPage.class);
         mainPage.clickButtonPersonal();
@@ -65,7 +65,7 @@ public class PersonalCabinetTest {
     @Test
     @DisplayName("Проверка перехода по клику на логотип Stellar Burgers.")
     public void checkGoToLogo() {
-        authorizationPage = open(AuthorizationPage.URL, AuthorizationPage.class);
+        authorizationPage = open(Url.URL_LOGIN, AuthorizationPage.class);
         authorizationPage.login(newUser.getEmail(), newUser.getPassword());
         mainPage = page(MainPage.class);
         mainPage.clickButtonPersonal();
@@ -78,7 +78,7 @@ public class PersonalCabinetTest {
     @Test
     @DisplayName("Проверка выхода по кнопке «Выйти» в личном кабинете.")
     public void check() {
-        authorizationPage = open(AuthorizationPage.URL, AuthorizationPage.class);
+        authorizationPage = open(Url.URL_LOGIN, AuthorizationPage.class);
         authorizationPage.login(newUser.getEmail(), newUser.getPassword());
         mainPage = page(MainPage.class);
         mainPage.clickButtonPersonal();
@@ -87,6 +87,7 @@ public class PersonalCabinetTest {
         //проверяем, что кнопку "Войти" появилась на экране
         authorizationPage.getButtonAuthorization().shouldBe(Condition.visible);
     }
+
     @After
     public void Postconditions() {
         API.deleteUser(accessToken);

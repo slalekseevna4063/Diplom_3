@@ -1,4 +1,4 @@
-package DeleteUsersPojos;
+package fordeleteuser;
 
 public class User {
     private String name;

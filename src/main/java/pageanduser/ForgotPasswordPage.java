@@ -1,4 +1,4 @@
-package UsersAndPagesObjects;
+package pageanduser;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class ForgotPasswordPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/forgot-password";
 
     //локатор кнопки "Войти в аккаунт"
     @FindBy(how = How.CLASS_NAME, using = "Auth_link__1fOlj")
