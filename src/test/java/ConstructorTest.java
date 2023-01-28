@@ -16,9 +16,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class ConstructorTest {
-    public NewUser newUser;
-    public MainPage mainPage;
-    public String accessToken;
+    private NewUser newUser;
+    private MainPage mainPage;
+    private String accessToken;
 
     @Before
     public void Preconditions() {

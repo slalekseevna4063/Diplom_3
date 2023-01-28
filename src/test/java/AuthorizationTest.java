@@ -14,10 +14,10 @@ import static com.codeborne.selenide.Selenide.page;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class AuthorizationTest {
-    public NewUser newUser;
-    public MainPage mainPage;
-    public AuthorizationPage authorizationPage;
-    public String accessToken;
+    private NewUser newUser;
+    private MainPage mainPage;
+    private AuthorizationPage authorizationPage;
+    private String accessToken;
 
 
     @Before

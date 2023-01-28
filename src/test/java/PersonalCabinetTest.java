@@ -14,11 +14,11 @@ import static com.codeborne.selenide.Selenide.page;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class PersonalCabinetTest {
-    public NewUser newUser;
-    public MainPage mainPage;
-    public AuthorizationPage authorizationPage;
-    public String accessToken;
-    public boolean yandex = false; // Если надо тесты запустить в Яндекс браузере, то переменная - true, для Хрома - false
+    private NewUser newUser;
+    private MainPage mainPage;
+    private AuthorizationPage authorizationPage;
+    private String accessToken;
+    private boolean yandex = false; // Если надо тесты запустить в Яндекс браузере, то переменная - true, для Хрома - false
 
     @Before
     public void Preconditions() {

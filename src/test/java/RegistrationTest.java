@@ -18,8 +18,8 @@ import static com.codeborne.selenide.Selenide.page;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class RegistrationTest {
-    public NewUser newUser;
-    public RegistrationPage registrationPage;
+    private NewUser newUser;
+    private RegistrationPage registrationPage;
 
     @Before
     public void Preconditions() {
